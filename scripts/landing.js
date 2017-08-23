@@ -1,5 +1,5 @@
  var animatePoints = function() {
- 
+
      var points = document.getElementsByClassName('point');
     
      var revealPoint = function(index) {
@@ -15,3 +15,11 @@
      }
      
 };
+
+ window.onload = function() {
+     alert("The window has loaded!");
+ }
+ 
+      window.addEventListener('scroll', function(event) {
+         console.log(event);
+     });
