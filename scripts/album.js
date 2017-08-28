@@ -30,7 +30,7 @@
      ]
  };
 
- // Another Example Album
+ // Third Example Album
  var albumSibelius = {
      title: 'Example',
      artist: 'Sibelius',
