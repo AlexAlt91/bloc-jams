@@ -85,13 +85,14 @@
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+     
      var albums [albumPicasso, albumMarconi, albumSibelius];
      var index = 1;
-     albumImage.addEventListener("click", function(event)) {
-        setCurrentAlbum(album);
+     albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
         index++;
         if (index == albums.length) {
             index = 0;
         }
-    };
+    });
  };
