@@ -30,18 +30,18 @@ var albumMarconi = {
   ]
 };
 
-var albumRothko = {
-  name: 'Color Numbers',
-  artist: 'Mark Rothko',
+var albumTelevision = {
+  name: 'Marquee Moon',
+  artist: 'Television',
   label: 'Multiforms',
   year: '1949',
   albumArtUrl: 'assets/images/album_covers/20.png',
   songs: [
-    { name: 'Rust and orange',                  length: '2:31'  },
-    { name: 'Magenta, Black, Green on Orange',  length: '3:41'  },
-    { name: 'Four darks in red',                length: '1:27'  },
-    { name: 'Black on Grey',                    length: '2:16'  },
-    { name: 'White center',                     length: '3:24'  }
+    { name: 'See no Evil',                  length: '2:31'  },
+    { name: 'Venus',  length: '3:41'  },
+    { name: 'Marquee Moon',                length: '1:27'  },
+    { name: 'Friction',                    length: '2:16'  },
+    { name: 'Elevation',                     length: '3:24'  }
   ]
 };
 
@@ -148,7 +148,7 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 window.onload = function() {
-  var albums = [albumPicasso, albumMarconi, albumRothko]
+  var albums = [albumPicasso, albumMarconi, albumTelevision]
   var currentAlbum = albumPicasso;
   var coverArt = document.getElementsByClassName('album-cover-art')[0]
 
