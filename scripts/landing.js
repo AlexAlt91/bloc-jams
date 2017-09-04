@@ -1,35 +1,42 @@
- var pointsArray = document.getElementsByClassName('point');
- 
- var revealPoint = function(point) {
-         point.style.transform = "scaleX(1) translateY(0)";
-         point.style.msTransform = "scaleX(1) translateY(0)";
-         point.style.WebkitTransform = "scaleX(1) translateY(0)";
+var animatePoints = function() {
 
-     }
+  var revealPoint = function(){
 
- var animatePoints = function(points) {
-     forEach(points, revealPoint);
-     
-     for (var i =0; i < points.length; i++){
-         revealPoint(i);
-     }
-     
+    // Fade in and up
+    $(this).css({
+      opacity: 1,
+      transform: 'scaleX(1) translateY(0)'
+    });
+
+  };
+
+  // Loop through each point and fadin/up
+  $.each( $('.point'), revealPoint );
+
 };
 
- window.onload = function() {
-         // Automatically animate the points on a tall screen where scrolling can't trigger the animation
-     if (window.innerHeight > 950) {
-         animatePoints(pointsArray);
-     }
+$(window).load(function() {
 
-      var sellingPoints = document.getElementsByClassName('selling-points' [0];
-   
-      var scrollDistance = sellingPoints.getBoundingClientRect().top - window.innerHeight + 200;
+  // If the selling points are already in the viewport, display them
+  if( $(window).height() > 950 ){
+    animatePoints();
+  }
 
-     
-      window.addEventListener('scroll', function(event) {
-         console.log(event);
-         if (document.documentElement.scrollTop || document.body.scrollTop >= scrollDistance) { 
-        animatePoints(pointsArray);   
-     });
- }
+  // Get the distance from the selling points section to the top of the window and
+  // subtract the total window height.
+  // Then add 200px so we can start the animation just before the points section begins.
+  var scrollDistance = $('.selling-points').offset().top - $(window).height() + 200;
+  console.log(scrollDistance);
+  console.log( $(window).scrollTop() );
+
+  $(window).scroll(function(event) {
+
+    // If the current vertical position of the scroll bar is greater than
+    // the points scroll distance, that means they're in view so display them
+    if( $(window).scrollTop() >= scrollDistance ) {
+      animatePoints();
+    }
+
+  });
+
+});
